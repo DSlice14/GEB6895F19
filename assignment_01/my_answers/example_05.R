@@ -7,7 +7,9 @@
 
 num_in <- readline(prompt="Enter a stopping point:   ")
 
-
+for (i in 1:num_in) {
+  if(numbers[i] %% 2 == 0) total[i] <- 1
+}
 
 
 #end
