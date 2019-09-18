@@ -57,15 +57,20 @@ rm(list=ls(all=TRUE))
 # Set working directory.
 # The '<-' operator denotes right-to-left assignment.
 # wdPath <- '/path/to/your/folder'
+<<<<<<< HEAD
 wdPath <- 'C:/Users/dougl/Documents/GEB6895/Fork/GEB6895F19/demo_03_intro_to_R'
 setwd(wdPath)
+=======
+wd_path <- 'C:/Users/14077/Documents/GEB6895-Fall2019/GitRepos/Fork-9.11.19/GEB6895F19/demo_03_intro_to_R'
+setwd(wd_path)
+>>>>>>> 6c67aeae507f8624a26e4671a25ac35573ed6bbe
 
 # Check this in unix (doesn't always work in Windows).
 system('pwd')
 system('ls -lh')
 
 # Set paths to other folders.
-dataPath <- sprintf('%s/data', wdPath)
+data_path <- sprintf('%s/data', wd_path)
 
 # Create this folder in unix to make sure that it exists.
 system('mkdir data')
@@ -78,22 +83,22 @@ system('mkdir data')
 ls()
 
 # Save current workspace image.
-workspaceFileName <- 'myWorkspace1'
-workspacePath <- sprintf('%s/%s.RData', wdPath, workspaceFileName)
-save.image(workspacePath)
+workspace_file_name <- 'myWorkspace1'
+workspace_path <- sprintf('%s/%s.RData', wd_path, workspace_file_name)
+save.image(workspace_path)
 
 # Now remove some variables. 
-rm(dataPath)
-dataPath
+rm(data_path)
+data_path
 
 # Check the workspace again.
 ls()
 
 
 # Load existing workspace image.
-workspaceFileName <- 'myWorkspace1'
-workspacePath <- sprintf('%s/%s.RData', wdPath, workspaceFileName)
-load(workspacePath)
+workspace_file_name <- 'myWorkspace1'
+workspace_path <- sprintf('%s/%s.RData', wdPath, workspace_file_name)
+load(workspace_path)
 
 
 
@@ -102,7 +107,7 @@ load(workspacePath)
 ################################################################################
 
 # The variables above are character strings.
-class(workspacePath)
+class(workspace_path)
 
 # The sprintf() is handed down from C.
 # (Many C and FORTRAN programs are used in the background in R.)
@@ -230,10 +235,19 @@ df3 <- data.frame(var1 = 21:30,
 
 
 # Create a matrix.
-# B = matrix( 
-#   +   c(2, 4, 3, 1, 5, 7), 
-#   +   nrow=3, 
-#   +   ncol=2) 
+A <- matrix(c(2, 4, 3, 1, 5, 7),
+            nrow = 2,
+            ncol = 3)
+x <- matrix(c(1, 0, 2),
+            nrow = 3,
+            ncol = 1)
+
+A
+x
+
+b <- A %*% x
+
+b
 
 
 # Categorical variables are called 'factors'.
@@ -548,20 +562,30 @@ addSeveralNumbers(3,2,1,NA,-1)
 # install.packages('name_of_R_package_goes_here') # Argument is a string.
 
 
-# Load libraries for time series analysis.
+# Load libraries for handling data.
 
-# install.packages('timeSeries')
-library(timeSeries)
+# Packages for interacting with Microsoft Excel:
 
-# install.packages('xts')
-library(xts)
+# install.packages('XLConnect')
+library(XLConnect)
 
-# install.packages('tseries')
-library(tseries)
+# install.packages('xlsx')
+library(xlsx)
 
-# install.packages('forecast')
-library(forecast)
+# Packages for using data from other statistical software:
 
+# install.packages('foreign')
+library(foreign)
+
+# install.packages('haven')
+library(haven)
+
+# These are a few among many listed on:
+# https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages
+
+
+
+# End
 
 
 
