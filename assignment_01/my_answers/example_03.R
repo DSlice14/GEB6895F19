@@ -8,22 +8,21 @@
 
 num_in <- readline(prompt="Enter a number:   ")
 
-if (0 <= num_in <= 10 ){
+
+#between
+if (inrange(num_in, 1, 10, incbounds=TRUE)){
   print("Blue")
-} 
-
-  Else { if (10 < num_in <= 20 ){
+} else if (10 < num_in <= 20 ){
   print("Red")
-  }
-    }
-
-  Else { if (20 < num_in <= 30 ){
+  } else if (20 < num_in <= 30 ){
     print("Green")
-  }
-  }
-  
-  Else {
+  } else {
     print("Not a correct color option")
   }
   
+
+
 #end
+
+
+

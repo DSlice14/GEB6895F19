@@ -58,7 +58,7 @@ rm(list=ls(all=TRUE))
 # The '<-' operator denotes right-to-left assignment.
 # wdPath <- '/path/to/your/folder'
 <<<<<<< HEAD
-wdPath <- 'C:/Users/dougl/Documents/GEB6895/Fork/GEB6895F19/demo_03_intro_to_R'
+wdPath <- 'C:/Users/dougl/Documents/GEB6895/My_Mirror/GEB6895F19-1/demo_03_intro_to_R'
 setwd(wdPath)
 =======
 wd_path <- 'C:/Users/14077/Documents/GEB6895-Fall2019/GitRepos/Fork-9.11.19/GEB6895F19/demo_03_intro_to_R'
@@ -125,7 +125,7 @@ some_numbers.integers <- 1:10
 class(some_numbers.integers)
 
 # Numeric is a broader class of, well, numeric variables.
-value_of_pi <- pi
+
 class(value_of_pi)
 
 # Logical values denote true or false conditions.
@@ -185,7 +185,7 @@ list_of_stuff <- list(thing1 = some_numbers.integers,
                       thing2 = value_of_pi)
 
 other_list <- list(item1 = x1 <- 2, item2 = 'string')
-x1
+x1b
 
 
 # Print it to screen.
@@ -198,6 +198,20 @@ list_of_stuff['thing1']
 list_of_stuff[2]
 list_of_stuff[[1]]
 
+names(list_of_stuff)
+
+for (name in names(list_of_stuff)) {
+  
+  print(name)
+  print(mean(list_of_stuff[[name]]))
+}
+
+for (name_num in 1:length(names(list_of_stuff))) {
+  
+  name <- names(list_of_stuff)[name_num]
+  
+  print(name)
+}
 
 bigger_list <- list(first_list = list_of_stuff, next_list = seq(5))
 
@@ -230,9 +244,9 @@ df2 <- data.frame(var1 = 11:20,
 # Multi-line commands must end with a symbol that indicates that a command is incomplete.
 # An open bracket after a comma will work:
 # Run both lines together:
+
 df3 <- data.frame(var1 = 21:30, 
                   var2=sprintf('row%d', 21:30))
-
 
 # Create a matrix.
 A <- matrix(c(2, 4, 3, 1, 5, 7),
