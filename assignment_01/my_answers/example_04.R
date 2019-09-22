@@ -5,7 +5,7 @@
 ##Print all multiples of 5 between 1 and n (include n if true)
 
 
-n <- 0
+n <- 10
 for(i in 1:n) {
   
   
@@ -13,9 +13,6 @@ for(i in 1:n) {
   
   print(sprintf('Completed iteration %d', i))
 }
-
-n
-
 
 
 #end

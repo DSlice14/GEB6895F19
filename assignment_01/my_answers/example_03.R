@@ -8,9 +8,8 @@
 
 num_in <- readline(prompt="Enter a number:   ")
 
-
 #between
-if (inrange(num_in, 1, 10, incbounds=TRUE)){
+if (between(x, 1, 10)){
   print("Blue")
 } else if (10 < num_in <= 20 ){
   print("Red")
