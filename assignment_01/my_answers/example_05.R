@@ -5,12 +5,15 @@
 ##Count all even numbers to a user defined stopping point.
 
 
-num_in <- readline(prompt="Enter a stopping point:   ")
+num_stop <- readline(prompt="Enter a stopping point:   ")
 
-for (i in 1:num_in) {
-  if(numbers[i] %% 2 == 0) total[i] <- 1
+
+count <- 0
+for (i in 1:num_stop) {
+  if (i%%2 == 0) 
+    count <- count + 1
 }
 
-
+print (count)
 
 #end
