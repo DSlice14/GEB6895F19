@@ -7,7 +7,7 @@
 #Part A
 ## Read in 5 seperate numbers.
 
-the_five_numbers <- seq(1,5,by=1)
+the_five_numbers <- seq(1,10,by=2)
 
 ###############
 #Part B

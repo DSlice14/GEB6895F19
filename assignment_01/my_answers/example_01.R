@@ -4,10 +4,12 @@
 
 ##Write an R Function that reads two numbers, multiplies them and prints product
 
-multiply_two <- function(num_1, num_2)
-  {num_1 * num_2
-print(multiply_two)
 
+funct_1 <- function(num_1, num_2) 
+  {num_1 * num_2
 }
+
+funct_1(num_1 = 5, num_2 = 6)
+
 
 #end
