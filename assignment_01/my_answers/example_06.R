@@ -7,28 +7,25 @@
 #Part A
 ## Read in 5 seperate numbers.
 
-the_five_numbers <- function(num_1, num_2, num_3, num_4, num_5)
+the_five_numbers <- seq(1,5,by=1)
 
 ###############
 #Part B
 ## Find average of the 5 seperate numbers.
 
-avg <- function({sum(the_five_numbers)/5})
+avg <- mean(the_five_numbers)
 
 ###############
 #Part C
 ## Find max and min of the 5 seperate numbers.
 
-max <- function(max{the_five_numbers})
-min <- function(min{the_five_numbers})
+max <- max(the_five_numbers)
+min <- min(the_five_numbers)
 
 ###############
 #Part D
 ## Write message printing answers from B and C with Description of the results.
 
-print(avg & "is the average of the 5 numbers, " & max " is the max of the 5 numbers, and " & min " is the min of the 5 numbers")
-
-
-
+sprintf("For the series of five numbers the max is %s, the min is %s, and the average is %s", max, min, avg)
 
 #end
