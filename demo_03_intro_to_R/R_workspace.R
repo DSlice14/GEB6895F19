@@ -57,13 +57,8 @@ rm(list=ls(all=TRUE))
 # Set working directory.
 # The '<-' operator denotes right-to-left assignment.
 # wdPath <- '/path/to/your/folder'
-<<<<<<< HEAD
-wdPath <- 'C:/Users/dougl/Documents/GEB6895/My_Mirror/GEB6895F19-1/demo_03_intro_to_R'
-setwd(wdPath)
-=======
 wd_path <- 'C:/Users/14077/Documents/GEB6895-Fall2019/GitRepos/Fork-9.11.19/GEB6895F19/demo_03_intro_to_R'
 setwd(wd_path)
->>>>>>> 6c67aeae507f8624a26e4671a25ac35573ed6bbe
 
 # Check this in unix (doesn't always work in Windows).
 system('pwd')
@@ -125,7 +120,7 @@ some_numbers.integers <- 1:10
 class(some_numbers.integers)
 
 # Numeric is a broader class of, well, numeric variables.
-
+value_of_pi <- pi
 class(value_of_pi)
 
 # Logical values denote true or false conditions.
@@ -185,7 +180,11 @@ list_of_stuff <- list(thing1 = some_numbers.integers,
                       thing2 = value_of_pi)
 
 other_list <- list(item1 = x1 <- 2, item2 = 'string')
-x1b
+x1
+
+# A better way:
+x2 <- 2
+yet_another_list <- list(item1 = x2, item2 = 'string')
 
 
 # Print it to screen.
@@ -200,18 +199,30 @@ list_of_stuff[[1]]
 
 names(list_of_stuff)
 
+
 for (name in names(list_of_stuff)) {
   
   print(name)
+  # name
+  
   print(mean(list_of_stuff[[name]]))
+  
 }
 
+# Equivalently:
 for (name_num in 1:length(names(list_of_stuff))) {
+  
+  print(name_num)
   
   name <- names(list_of_stuff)[name_num]
   
   print(name)
+  
+  print(mean(list_of_stuff[[name]]))
+  
 }
+
+
 
 bigger_list <- list(first_list = list_of_stuff, next_list = seq(5))
 
@@ -223,6 +234,15 @@ bigger_list$first_list$thing1
 # Data frames behave similarly (because a data frame IS a list).
 df1 <- data.frame(var1 = 1:10, var2=sprintf('row%d', 1:10))
 # Note '%d' is the escape sequence for integers.
+
+
+df1['var1']
+
+
+df1[2:7, 'var1']
+
+df1[2:7, ]
+
 
 
 # Many statistical functions use a formula object
@@ -244,9 +264,9 @@ df2 <- data.frame(var1 = 11:20,
 # Multi-line commands must end with a symbol that indicates that a command is incomplete.
 # An open bracket after a comma will work:
 # Run both lines together:
-
 df3 <- data.frame(var1 = 21:30, 
                   var2=sprintf('row%d', 21:30))
+
 
 # Create a matrix.
 A <- matrix(c(2, 4, 3, 1, 5, 7),
@@ -277,7 +297,7 @@ is.character(df4$var2)
 value1 <- 7
 value2 <- 10
 total = value1 
-  + value2
++ value2
 
 print(total)
 
@@ -397,6 +417,18 @@ if (weather == 'rainy') {
   print('Bring sunglasses.')
 } 
 
+if (weather == 'rainy') {}
+if (weather == 'sunny') {}
+
+
+
+is_it_sunny <- weather == 'sunny'
+is_it_rainy <- weather == 'rainy'
+
+
+test <- weather == 'sunny'
+
+
 
 
 weather <- 'tornado'
@@ -499,11 +531,39 @@ addTwoNumbers <- function(first_number, second_number) {
   
   total <- first_number + second_number
   
+  # print(first_number)
+  # print(second_number)
+  
   return(total)
 }
 
 # Call the function.
 addTwoNumbers(3,4)
+
+the_sum <- addTwoNumbers(3,4)
+
+
+addThreeNumbers <- function(first_number, second_number) {
+  
+  third_number <- 200
+  
+  total <- first_number + second_number + third_number
+  
+  # print(first_number)
+  # print(second_number)
+  
+  return(total)
+}
+
+addThreeNumbers(3,4)
+
+third_number <- 100
+third_number <- 101
+
+addThreeNumbers(3,4)
+
+
+addThreeNumbers(3,4)
 
 # Try this.
 addTwoNumbers(3,4,5)
@@ -606,5 +666,3 @@ library(haven)
 ################################################################################
 # End
 ################################################################################
-
-
