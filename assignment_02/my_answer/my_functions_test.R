@@ -1,6 +1,8 @@
 
 ################################################################################
 # 
+#### Douglas Stigler - Assignment 2 ##########
+#
 # GEB 6895: Tools for Business Intelligence
 # Assignment 2: Loading and Using a Library of Functions
 # 

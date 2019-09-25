@@ -85,5 +85,6 @@ summarize_5_numbers <- function(num_1, num_2, num_3, num_4, num_5){
   sprintf("For the series of five numbers the max is %s, the min is %s, and the average is %s", max, min, avg)
 }
 
-print(x)
-############################END
+###########################
+#END
+###########################
