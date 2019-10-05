@@ -201,5 +201,46 @@ git pull origin master
 As mentioned above, if you want to push updates and your version is not current, you will have to pull the recent changes before you can push your updates to the repo. 
 
 
+## Appendix: The Command You Hope to Rarely Use
+
+Sometimes you might commit a change that you will later want to remove. 
+Even if a commit is already pushed, it is possible to reverse that commit, 
+using the command ```git revert <commit hash>```, 
+where the ```<commit hash>``` is an alphanumeric code that uniquely identifies the commit. 
+Browse to any file in the commit and click on the link or message referring to the commit and obtain the commit hash. 
+
+
+<img src="Finding_Commit_Hash.png" width="1000"/>
+
+Then enter this into your terminal
+
+```
+git revert 74abb7e
+```
+
+Then there is an additional step. 
+Since reverting a commit is an unusual step, the default action after this command is to add a message to the (inverse) commit. 
+
+<img src="Enter_Revert_Message_in_vim.png" width="1000"/>
+
+This screen is a classic text editor called ```vim```. 
+If you are happy with the comments as is, exit ```vim``` by pressing ```:``` then ```q``` to quit. 
+If you do want to add a comment, press ```i``` to enter ```INSERT``` mode, 
+then navigate with the arrow keys and type in a coment. 
+Next press the ```Esc``` key to exit ```INSERT``` mode, 
+followed by ```:``` then ```wq``` to write the changes and quit.  
+You should now get back to your terminal prompt. 
+
+The next step is to push these changes to your repo. 
+The reverted content is the inverse of the very same content that was added to the original commit. 
+Each line and each file that was added was then deleted in the revert and vice versa for lines and files deleted in the original commit. 
+It is as if you reversed those changes manually and then added and committed the changes. 
+
+
+P.S. This example was not David's fault in any way. 
+I aciddentally pushed his content to the upstream instead of the origin of his mirror. 
+It happens to everyone...eventually. 
+Now we know how to fix it. 
+
 
 
