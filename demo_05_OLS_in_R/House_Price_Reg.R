@@ -33,7 +33,7 @@ rm(list=ls(all=TRUE))
 
 # Set working directory.
 # wd_path <- '/path/to/your/folder' 
-wd_path <- '~/Teaching/GEB6895_Fall_2019/GitRepos/demo_05_OLS_in_R' # On Windows
+wd_path <- 'C:/Users/dougl/Documents/GEB6895/My_Mirror/GEB6895F19-1/demo_05_OLS_in_R' # On Windows
 
 setwd(wd_path)
 
@@ -75,6 +75,9 @@ print(round(corr_matrix, 3))
 # Estimating the Regression Model
 # Model 1: All Variables Included
 ##################################################
+
+#Note the formula objects
+# y ~ x_1 + x_2 + x_3
 
 # Estimate a regression model.
 lm_full_model <- lm(data = housing_data, 
