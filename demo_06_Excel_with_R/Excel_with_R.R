@@ -19,7 +19,7 @@
 #   and the results are written to new spreeadsheets.
 # 
 # Dependencies:
-#   None. 
+#   openxlsx 
 # 
 ##################################################
 
@@ -33,7 +33,7 @@ rm(list=ls(all=TRUE))
 
 # Set working directory.
 # wd_path <- '/path/to/your/folder' 
-wd_path <- '~/Teaching/GEB6895_Fall_2019/GitRepos/demo_06_Excel_with_R' # On Windows
+wd_path <- '~/GEB6895/My_Mirror/GEB6895F19-1/demo_06_Excel_with_R' # On Windows
 
 setwd(wd_path)
 
@@ -45,6 +45,7 @@ getwd()
 # Load library to interact with Microsoft Excel.
 library(openxlsx)
 
+#install.packages('openxlsx')
 
 ##################################################
 # Open an Existing Workbook
@@ -61,7 +62,8 @@ housing_data_frame <- readWorkbook(xlsxFile = wb_in,
 # Inspect the data for accuracy. 
 summary(housing_data_frame)
 
-
+#View data
+View(housing_data_frame)
 
 # Perform some analysis with the data. 
 
