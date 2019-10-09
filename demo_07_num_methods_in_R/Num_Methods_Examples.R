@@ -191,7 +191,9 @@ library(rootSolve)
 model <- function(x) c(F1 = x[1]^2+ x[2]^2 -1, 
                        F2 = x[1]^2- x[2]^2 +0.5)
 
-(ss <- multiroot(f = model, start = c(1, 1)))
+ss <- multiroot(f = model, start = c(1, 1))
+
+
 
 ## =======================================================================
 ## example 2
@@ -203,11 +205,11 @@ model <- function(x) c(F1 = x[1] + x[2] + x[3]^2 - 12,
                        F3 = 2 * x[1] - x[2]^2 + x[3] - 1 )
 
 # first solution
-(ss <- multiroot(model, c(1, 1, 1), useFortran = FALSE))
-(ss <- multiroot(f = model, start = c(1, 1, 1)))
+ss <- multiroot(model, c(1, 1, 1), useFortran = FALSE)
+ss <- multiroot(f = model, start = c(1, 1, 1))
 
 # second solution; use different start values
-(ss <- multiroot(model, c(0, 0, 0)))
+ss <- multiroot(model, c(0, 0, 0))
 model(ss$root)
 
 
@@ -232,6 +234,7 @@ multiroot(model2, c(0, 0, 0), parms = parms*2)
 
 # Find a matrix X such that X^3 = A
 # where A = matrix(nrow = 5, data = 1:25, byrow = TRUE)
+# This is a cubic polynomial in 25 variables. 
 
 f2<-function(x)   {
   X <- matrix(nrow = 5, x)
@@ -240,7 +243,12 @@ f2<-function(x)   {
 x <- multiroot(f2, start = 1:25 )$root # One long vector. 
 X <- matrix(nrow = 5, x) # Convert it to a matrix. 
 
+# Verify the solution. 
+# 1. By direct computation
 X%*%X%*%X
+# 2. By evaluating the function.
+f2(X)
+
 
 ################################################################################
 # Optimization
@@ -261,7 +269,7 @@ optimize(function(x) x^2*(print(x)-1), lower = 0, upper = 10)
 f  <- function(x) ifelse(x > -1, ifelse(x < 4, exp(-1/abs(x - 1)), 10), 10)
 fp <- function(x) { print(x); f(x) }
 
-plot(f, -2,5, ylim = 0:1, col = 2)
+plot(f, -2,5, ylim = 0:1, col = 'red', lwd = 2)
 optimize(fp, c(-4, 20))   # doesn't see the minimum
 optimize(fp, c(-7, 20))   # ok
 
@@ -281,8 +289,11 @@ grr <- function(x) { ## Gradient of 'fr'
   c(-400 * x1 * (x2 - x1 * x1) - 2 * (1 - x1),
     200 *      (x2 - x1 * x1))
 }
+
 optim(c(-1.2,1), fr)
-(res <- optim(c(-1.2,1), fr, grr, method = "BFGS"))
+res <- optim(c(-1.2,1), fr, grr, method = "BFGS")
+
+# Compare with other algorithms:
 optimHess(res$par, fr, grr)
 optim(c(-1.2,1), fr, NULL, method = "BFGS", hessian = TRUE)
 ## These do not converge in the default number of steps
@@ -290,23 +301,31 @@ optim(c(-1.2,1), fr, grr, method = "CG")
 optim(c(-1.2,1), fr, grr, method = "CG", control = list(type = 2))
 optim(c(-1.2,1), fr, grr, method = "L-BFGS-B")
 
-flb <- function(x)
-{ p <- length(x); sum(c(1, rep(4, p-1)) * (x - c(1, x[-p])^2)^2) }
+
+
+flb <- function(x) { 
+  p <- length(x); sum(c(1, rep(4, p-1)) * (x - c(1, x[-p])^2)^2) 
+}
+
 ## 25-dimensional box constrained
 optim(rep(3, 25), flb, NULL, method = "L-BFGS-B",
       lower = rep(2, 25), upper = rep(4, 25)) # par[24] is *not* at boundary
 
 
-## "wild" function , global minimum at about -15.81515
-fw <- function (x)
+# "wild" function , global minimum at about -15.81515
+
+fw <- function (x) {
   10*sin(0.3*x)*sin(1.3*x^2) + 0.00001*x^4 + 0.2*x+80
+}
 plot(fw, -50, 50, n = 1000, main = "optim() minimising 'wild function'")
 
 res <- optim(50, fw, method = "SANN",
              control = list(maxit = 20000, temp = 20, parscale = 20))
 res
 ## Now improve locally {typically only by a small bit}:
-(r2 <- optim(res$par, fw, method = "BFGS"))
+r2 <- optim(res$par, fw, method = "BFGS")
+
+
 points(r2$par,  r2$value,  pch = 8, col = "red", cex = 2)
 
 ################################################################################
