@@ -49,47 +49,82 @@ hist(life_data$lifeexpect)
 
 #Model with all variables
 life_full_model <- lm(data = life_data, 
-                    formula = lifeexpect ~ medinc + uninsured + smoke + obesity + teenbirth + gunlaw + metro)
+                      formula = lifeexpect ~ medinc + uninsured + smoke + obesity + teenbirth + gunlaw + metro)
 
 #Summarize full model
 summary(life_full_model)
+
+##################################################
+# Removing one variable at a time from full model
+##################################################
+
+#Model without medinc variables
+life_a_model <- lm(data = life_data, 
+                   formula = lifeexpect ~ uninsured + smoke + obesity + teenbirth + gunlaw + metro)
+#Summarize a model
+summary(life_a_model)
+
+####################
+
+#Model without uninsured variables
+life_b_model <- lm(data = life_data, 
+                   formula = lifeexpect ~ medinc + smoke + obesity + teenbirth + gunlaw + metro)
+
+#Summarize b model
+summary(life_b_model)
+
+####################
+
+
+#Model without gunlaw variables
+life_c_model <- lm(data = life_data, 
+                   formula = lifeexpect ~ medinc + uninsured + smoke + obesity + teenbirth  + metro)
+
+#Summarize c model
+summary(life_c_model)
+
+####################
 
 ##################################################
 # Removing variables from full model
 ##################################################
 
 #Model with -1 variables
-life_a_model <- lm(data = life_data, 
+life_d_model <- lm(data = life_data, 
                       formula = lifeexpect ~ uninsured + smoke + obesity + teenbirth + gunlaw + metro)
 #Summarize -1 model
-summary(life_a_model)
+summary(life_d_model)
 
 ####################
 
 #Model with -2 variables
-life_b_model <- lm(data = life_data, 
+life_e_model <- lm(data = life_data, 
                    formula = lifeexpect ~ smoke + obesity + teenbirth + gunlaw + metro)
 
 #Summarize -2 model
-summary(life_b_model)
+summary(life_e_model)
 
 ####################
+
 
 #Model with -3 variables
-life_c_model <- lm(data = life_data, 
-                   formula = lifeexpect ~ smoke + obesity + teenbirth + metro)
+life_f_model <- lm(data = life_data, 
+                   formula = lifeexpect ~ smoke + obesity + teenbirth  + metro)
 
 #Summarize -3 model
-summary(life_c_model)
+summary(life_f_model)
 
 ####################
 
+
 #Model with -4 variables
-life_d_model <- lm(data = life_data, 
+life_g_model <- lm(data = life_data, 
                    formula = lifeexpect ~ smoke + obesity + teenbirth)
 
 #Summarize -4 model
-summary(life_d_model)
+summary(life_g_model)
+
+####################
 
 ##################################################
 # Creating Alternative Model
@@ -167,20 +202,6 @@ life_alt7_model <- lm(data = life_data,
 summary(life_alt7_model)
 
 #R^2 Stat is better, keeping variable
-
-
-##################################################
-# Finding model to challange full model for most significant 
-##################################################
-
-#Alt significant
-#Came to these variables that produced significant t values within .05 after some trial and error
-
-life_alt8_model <- lm(data = life_data, 
-                      formula = lifeexpect ~ smoke + obesity + teenbirth)
-
-#Summarize significant variable
-summary(life_significant_model)
 
 
 ##################################################
