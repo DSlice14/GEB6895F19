@@ -34,8 +34,8 @@ rm(list=ls(all=TRUE))
 
 # Set working directory.
 # The '<-' operator denotes right-to-left assignment.
-wd_path <- '/path/to/your/folder'
-wd_path <- '~/Teaching/GEB6895_Fall_2019/GitRepos/demo_07_num_methods_in_R' # On Windows
+wd_path <- '~/GEB6895/My_Mirror/GEB6895F19-1/demo_07_num_methods_in_R'
+wd_path <- '~/GEB6895/My_Mirror/GEB6895F19-1/demo_07_num_methods_in_R' # On Windows
 setwd(wd_path)
 
 
@@ -135,6 +135,8 @@ f_with_a_soln
 
 # Plot. 
 x_grid <- seq(0.0, 1.0, by = 0.01)
+plot(x_grid,f(x_grid))
+
 plot(x_grid, f_with_a(x = x_grid, a = 1/3), 
      main = 'Roots and fixed points of f(x) = x - a', 
      xlab = 'x', 
