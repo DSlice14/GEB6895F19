@@ -51,6 +51,8 @@ life_linear_model <- lm(data = hospital_data,
 #Summarize full model
 summary(life_linear_model)
 
+# You might want to check the predictions to see if they are all positive and less than one.
+
 ##################################################
 # Full Logistic Model
 ##################################################
@@ -72,6 +74,11 @@ life_log2_model <- glm(data = hospital_data,
 
 #Summarize full model
 summary(life_log2_model)
+
+
+##################################################
+# Correctly implemented but without adressing the questions for c,d,e.
+##################################################
 
 ##################################################
 # End
