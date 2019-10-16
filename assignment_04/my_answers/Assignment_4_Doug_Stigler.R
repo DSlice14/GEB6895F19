@@ -134,6 +134,8 @@ ssr <- function(beta, y, x) {
   beta_1 <- beta[2]
   
   # ...
+  # You made it pretty far but stopped short of this one. 
+  # Keep on going!
   
   ssr <- NA
   
