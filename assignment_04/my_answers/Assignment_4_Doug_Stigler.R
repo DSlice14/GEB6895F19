@@ -110,11 +110,11 @@ print(beta_1_hat_lm)
 
 X_T_x <- cbind(income_data,agg_pct_data) 
 
-X_T_y <- cbind(income_data,agg_pct_data)
+X_T_y <- NA
 
 # Part ii: Solve the equations for beta. 
 
-beta_hat_norm <- t(x_T_X)%*%X_T_x
+beta_hat_norm <- NA
 
 
 ##################################################
@@ -124,6 +124,9 @@ beta_hat_norm <- t(x_T_X)%*%X_T_x
 # Part i: Sum of Squared residuals.
 
 # Note that beta is a vector of two coefficients. 
+
+beta_test_ssr <- c(coef(lm_model['(Intercept)']),
+                   coef(lm_model['agg_pct']))
 
 ssr <- function(beta, y, x) {
   
@@ -136,6 +139,8 @@ ssr <- function(beta, y, x) {
   
   return(ssr)
 }
+
+sqrt(ssr(beta_test_ssr, y, x)/2)
 
 # Part ii: Plot the SSR function on a graph.
 
