@@ -105,11 +105,12 @@ print(beta_1_hat_lm)
 # Estimating beta from solving equations
 ##################################################
 
+
 # Part i: Define matrices for normal equations.
 
-X_T_x <- c(x)nrows=10,ncol=1
+X_T_x <- cbind(income_data,agg_pct_data) 
 
-X_T_y <- NA
+X_T_y <- cbind(income_data,agg_pct_data)
 
 # Part ii: Solve the equations for beta. 
 
@@ -143,6 +144,7 @@ ssr <- function(beta, y, x) {
 
 # Verify that the maximum is at the beta_hat estimate.
 
+plot()
 
 # Part iii: Optimize the SSR function w.r.t. beta. 
 
