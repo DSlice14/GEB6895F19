@@ -78,7 +78,7 @@ lm_model <- lm(data = agg_data,
 summary(lm_model)
 
 # Store the slope coefficient. 
-beta_1_hat_lm <- NA
+beta_1_hat_lm <- coef(lm_model)["agg_pct"]
 
 
 ##################################################
@@ -90,12 +90,16 @@ beta_1_hat_lm <- NA
 y <- agg_data[, 'income']
 x <- agg_data[, 'agg_pct']
 
-# ...
+#finding the means
 
-beta_1_hat_calc <- NA
+
+beta_1_hat_calc <- function(x,y){
+  sum((y - mean(y))*(x-mean(x))) / sum(((x-mean(x))^2))
+}
 
 # Compare with the output above. 
-
+print(beta_1_hat_calc(x,y))
+print(beta_1_hat_lm)
 
 ##################################################
 # Estimating beta from solving equations
@@ -103,13 +107,13 @@ beta_1_hat_calc <- NA
 
 # Part i: Define matrices for normal equations.
 
-X_T_x <- NA
+X_T_x <- c(x)nrows=10,ncol=1
 
 X_T_y <- NA
 
 # Part ii: Solve the equations for beta. 
 
-beta_hat_norm <- NA
+beta_hat_norm <- t(x_T_X)%*%X_T_x
 
 
 ##################################################
