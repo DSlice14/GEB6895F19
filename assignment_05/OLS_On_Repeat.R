@@ -31,12 +31,12 @@
 rm(list=ls(all=TRUE))
 
 # Set working directory.
-wd_path <- '/path/to/your/folder' 
+wd_path <- '~/GEB6895/My_Mirror/GEB6895F19-1/assignment_05' 
 
 setwd(wd_path)
 
 # Or do this in one step (using buttons in  File panel).
-setwd("~/path/to/your/folder")
+setwd("~/GEB6895/My_Mirror/GEB6895F19-1/assignment_05")
 
 # Read function for sampling data. 
 source('House_Price_Sim_Data.R')
@@ -126,7 +126,7 @@ housing_data[, 'income_2'] <- housing_data[, 'income'] +
 ##################################################
 
 # Set the list of variables for the estimation. 
-list_of_variables <- c('income', 'in_cali', 'earthquake')
+list_of_variables <- c('income_1', 'in_cali', 'earthquake')
 # list_of_variables <- c('income_1', 'in_cali', 'earthquake')
 
 # Add beta_0 to the beginning for the full list.
