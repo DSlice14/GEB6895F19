@@ -38,7 +38,7 @@ rm(list=ls(all=TRUE))
 
 # Set working directory
 # (could do this using buttons in File panel).
-setwd("~/Teaching/GEB6895_Fall_2019/GitRepos/demo_08_model_validation_in_R")
+setwd("~/GEB6895/My_Mirror/GEB6895F19-1/demo_08_model_validation_in_R")
 
 # Read function for sampling data. 
 source('House_Price_Sim_Data.R')

@@ -149,10 +149,6 @@ lm_testing_model_1 <- lm(data = housing_data[!obsns_for_estimation, ],
 summary(lm_testing_model_1)
 
 
-
-
-
-
 ##################################################
 # 
 # Exercise 1 (in class):

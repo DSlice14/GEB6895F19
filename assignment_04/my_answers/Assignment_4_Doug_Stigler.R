@@ -67,7 +67,37 @@ plot(agg_data[, 'income'],
      xlab = 'Income', 
      ylab = 'Pct. in Agriculture', 
      col = 'blue')
+points(agg_data[, 'income'], 
+     agg_data[, 'agg_pct'] + 1.5,
+     col = 'red',
+     pch = 20)
+abline(lm_model)
+abline(a = 4, b = 0.1, 
+       lwd = 1, col = 'red')
+#abline(h = c(10), v = c(25), 
+#       lwd = 1, col = 'green')
 
+x_vec <- seq(0, 5, by = 0.01)
+y_vec <- (x_vec - 2)^2 - 1
+
+plot(x_vec, y_vec,
+     main = "Title Goes Here",
+     xlab = 'The X Axis',
+     ylab = 'The Y Axis',
+     type = 'l',
+     lwd = 3,
+     col = 'black')
+color_list <- rainbow(7)
+for (i in 1:7){
+  lines(x_vec, y_vec + i, col = color_list[i], lwd = 3)
+}
+
+lines(x_vec, y_vec + 1, 
+      col = 'red',
+      lwd = 3)
+points(x_vec, y_vec + 3, 
+      col = 'green',
+      lwd = 1)
 
 
 # Estimate a regression model.
@@ -108,13 +138,21 @@ print(beta_1_hat_lm)
 
 # Part i: Define matrices for normal equations.
 
-X_T_x <- cbind(income_data,agg_pct_data) 
+ones_x <- rep(1,length(x))
 
-X_T_y <- NA
+X_T_x <- cbind(ones_x,x) 
+t(x)%*%y
+beta_hat_x <- solve(t(x)%*%x, t(x)%*%y)
+
+ones_y <- rep(1,length(y))
+X_T_y <- cbind(ones_y,y)
+t(y)%*%x
+beta_hat_y <- solve(t(y)%*%y, t(y)%*%x)
+
 
 # Part ii: Solve the equations for beta. 
 
-beta_hat_norm <- NA
+beta_hat_norm <- qr.solve(X_T_y,X_T_x)
 
 
 ##################################################
@@ -125,8 +163,10 @@ beta_hat_norm <- NA
 
 # Note that beta is a vector of two coefficients. 
 
-beta_test_ssr <- c(coef(lm_model['(Intercept)']),
-                   coef(lm_model['agg_pct']))
+beta_test_ssr <- matrix(c(coef(lm_model)["(Intercept)"], 
+                          coef(lm_model)["agg_pct"]),
+                             nrow = 2,
+                             ncol = 1)
 
 ssr <- function(beta, y, x) {
   
@@ -137,7 +177,7 @@ ssr <- function(beta, y, x) {
   # You made it pretty far but stopped short of this one. 
   # Keep on going!
   
-  ssr <- NA
+  ssr <- sum((y - beta_0 - (beta_1 * x))^2)
   
   return(ssr)
 }
@@ -151,14 +191,13 @@ sqrt(ssr(beta_test_ssr, y, x)/2)
 
 # Verify that the maximum is at the beta_hat estimate.
 
-plot()
+plot(sum((y - beta_0 - (beta_1 * x))^2))
 
 # Part iii: Optimize the SSR function w.r.t. beta. 
 
 # ...
 
-beta_hat_opt <- NA
-
+beta_hat_opt <- optimize(function(x) x^2*(print(x)-1), lower = 0, upper = 5)
 
 # Compare with the output above. 
 
