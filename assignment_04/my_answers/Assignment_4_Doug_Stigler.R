@@ -191,11 +191,19 @@ sqrt(ssr(beta_test_ssr, y, x)/2)
 
 # Verify that the maximum is at the beta_hat estimate.
 
+# This is just plotting a single point.
 plot(sum((y - beta_0 - (beta_1 * x))^2))
+# You need to create a vector of values of SSR
+# corresponding to a vecto of values of beta_1. 
 
 # Part iii: Optimize the SSR function w.r.t. beta. 
 
 # ...
+
+# (Almost) Correct approach. Need only use the (adjusted) ssr() function above.
+# Note that the optimize() function is for univariate optimization, 
+# while this problem has two variables beta_0 and beta_1. 
+# The optim() function is the one to use here.
 
 beta_hat_opt <- optimize(function(x) x^2*(print(x)-1), lower = 0, upper = 5)
 
