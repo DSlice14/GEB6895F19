@@ -33,6 +33,11 @@ import numpy as np
 ##################################################
 
 
+
+#--------------------------------------------------
+# if statements
+#--------------------------------------------------
+
 age = 17
 
 if age > 17:
@@ -43,6 +48,8 @@ else:
    print("can only see rated PG movies")
 
 
+if 7 < 4:
+    print 'not true'
 
 
 age = 1
@@ -74,6 +81,8 @@ OddOrEven(math.pi)
 
 math.pi % 2
 
+46 % 5
+
 
 def OddOrEven_2(number):
     if type(number) == int:
@@ -91,7 +100,9 @@ OddOrEven_2(math.pi)
 
 OddOrEven_2('math.pi')
 
+#--------------------------------------------------
 # for loops
+#--------------------------------------------------
 
 
 words = ['cat', 'window', 'defenestrate']
@@ -140,10 +151,41 @@ for value in raw_data:
 filtered_data
 
 
+#--------------------------------------------------
+# while loops
+#--------------------------------------------------
+
+i = 5
+while i > 0:
+  i -= 1
+  print('i = %d' % i)
+  print("Inside the loop")
 
 
 
+
+i = 5
+while i > 0:
+  i -= 1
+  print('i = %d' % i)
+  if i == 3:
+      break
+  print("Inside the loop")
+
+
+
+while True:
+  usr_command = input("Enter your command: ")
+  if usr_command == "quit":
+    break
+  else:
+    print("You typed " + usr_command)
+
+
+
+##################################################
 # Experimenting with boolean variables.
+##################################################
 
 list_in <= 7
 

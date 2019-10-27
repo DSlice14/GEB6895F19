@@ -31,12 +31,21 @@
 rm(list=ls(all=TRUE))
 
 # Set working directory.
+<<<<<<< HEAD
 wd_path <- '~/GEB6895/My_Mirror/GEB6895F19-1/assignment_05' 
+=======
+# wd_path <- '/path/to/your/folder' 
+>>>>>>> f087b18ef1dc4f54b731c2b1482fc69e35a0d772
 
-setwd(wd_path)
+# setwd(wd_path)
 
 # Or do this in one step (using buttons in  File panel).
+<<<<<<< HEAD
 setwd("~/GEB6895/My_Mirror/GEB6895F19-1/assignment_05")
+=======
+# setwd("~/path/to/your/folder")
+setwd("~/Teaching/GEB6895_Fall_2019/GitRepos/assignment_05")
+>>>>>>> f087b18ef1dc4f54b731c2b1482fc69e35a0d772
 
 # Read function for sampling data. 
 source('House_Price_Sim_Data.R')
@@ -119,6 +128,7 @@ housing_data[, 'income_2'] <- 0
 housing_data[, 'income_2'] <- housing_data[, 'income'] + 
   rnorm(n = num_obs, mean = 0, sd = measurement_error_income)
 
+plot(housing_data[, 'income'], housing_data[, 'income_1'])
 
 ##################################################
 # Running a Simulation
@@ -126,8 +136,13 @@ housing_data[, 'income_2'] <- housing_data[, 'income'] +
 ##################################################
 
 # Set the list of variables for the estimation. 
+<<<<<<< HEAD
 list_of_variables <- c('income_1', 'in_cali', 'earthquake')
 # list_of_variables <- c('income_1', 'in_cali', 'earthquake')
+=======
+# list_of_variables <- c('income', 'in_cali', 'earthquake')
+list_of_variables <- c('income_1', 'in_cali', 'earthquake')
+>>>>>>> f087b18ef1dc4f54b731c2b1482fc69e35a0d772
 
 # Add beta_0 to the beginning for the full list.
 full_list_of_variables <- c('intercept', list_of_variables)
@@ -248,6 +263,9 @@ sapply(reg_results[, full_list_of_variables], mean)
 print('Standard Deviations of the coefficients are:')
 sapply(reg_results[, full_list_of_variables], sd)
 
+
+# Compare these to the standard deviations of the variables.
+sapply(housing_data[, full_list_of_variables[2:4]], sd)
 
 
 ##################################################
