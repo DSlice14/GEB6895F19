@@ -5,8 +5,8 @@
 
 
 
-#Douglas Stigler
-#Assignment 6
+# Douglas Stigler
+# Assignment 6
 
 
 # GEB 6895: Tools for Business Intelligence
