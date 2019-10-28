@@ -2,13 +2,11 @@
 """
 ##################################################
 # 
-
-
-
+#
 # Douglas Stigler
 # Assignment 6
-
-
+#
+#
 # GEB 6895: Tools for Business Intelligence
 # 
 # Sample program for writing and testing functions
@@ -35,7 +33,7 @@
 # Import Modules.
 ##################################################
 
-#none needed
+# None Required
 
 ##################################################
 # Functions.
@@ -52,9 +50,6 @@ def multiply_two(num_1, num_2):
     
     return name_of_output
 
-
-
-
 #--------------------------------------------------
 # b) is_it_5_or_6
 #--------------------------------------------------
@@ -68,7 +63,6 @@ def is_it_5_or_6(num_in):
     else:
         return "The number is not 5 or 6"
     
-
 #--------------------------------------------------
 # c) color_by_number
 #--------------------------------------------------
@@ -84,9 +78,6 @@ def color_by_number(num_in):
      else:
         return "This is not a correct color option"
 
-
-
-
 #--------------------------------------------------
 # d) multiples_of_5
 #--------------------------------------------------
@@ -96,7 +87,6 @@ def multiples_of_5(n):
     for i in range(0,n):
         if i%5 == 0 :
             return(i)
-
 
 #--------------------------------------------------
 # e) count_even_numbers
@@ -110,9 +100,6 @@ def count_even_numbers(end_num):
             count = count + 1
     return(count)
 
-
-
-
 #--------------------------------------------------
 # f) summarize_5_numbers
 #--------------------------------------------------
@@ -124,11 +111,8 @@ def summarize_5_numbers(num_1, num_2, num_3, num_4, num_5):
     max5 = max(num_1, num_2, num_3, num_4, num_5)
     
     print "The average of the 5 numbers is",avg5,", the max is",max5,", and the minimum of the numbers is", min5
-    
-    
+
     return avg5,min5,max5
-
-
 
 ##################################################
 # Test Cases.
