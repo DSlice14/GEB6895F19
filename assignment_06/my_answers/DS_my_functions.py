@@ -91,11 +91,16 @@ def color_by_number(num_in):
 # d) multiples_of_5
 #--------------------------------------------------
 
+# The return statement inside the loop causes the program to break and return zero
+# at the first instance of the return statement.
+
 def multiples_of_5(n):
     
+    list = []
     for i in range(0,n):
         if i%5 == 0 :
-            return(i)
+        list.append(i)
+    return list
 
 
 #--------------------------------------------------
