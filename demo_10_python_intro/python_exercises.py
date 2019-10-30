@@ -122,6 +122,50 @@ else:
     print('Player 2 wins')
 # ... continued...
 
+##################################################
+# Exercise: Factorial.
+##################################################
+
+# For Loop
+
+def factorial(n):
+    product = 1
+    for i in range(1,n+1):
+        product = product*i
+    
+    return product
+    
+print factorial(5)
+print factorial(3)
+print factorial(9)
+
+# While Loop
+
+def factorial_2(n):
+    product = 1
+    i = 1
+    while i <= n:
+        product = product*i
+        i = i + 1
+    return product   
+
+print factorial_2(5)
+print factorial_2(3)
+print factorial_2(9)
+
+# Function calling itself
+
+def factorial_3(n):
+    if n == 1:
+        product = 1
+    else:
+        product = n*factorial_3(n-1)
+        
+    return product
+        
+print factorial_3(5)
+print factorial_3(3)
+print factorial_3(9)
 
 ##################################################
 # Exercise: Fibonacci sequence.
